@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!-- Meta -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- CSS -->
+<!-- Script -->
+<script src="GameObject.js"></script>
+<script src="Util.js"></script>
+<script src="Canvas.js"></script>
+<script src="Game.js"></script>
+<script src="Consts.js"></script>
+<script src="Input.js"></script>
+<script src="Hud.js"></script>
+<script src="Compatibility.js"></script>
+<script src="MathVX.js"></script>
+<!-- Layout -->
+<head>
+	<title>voxtex</title>
+</head>
+<body style="background: #DDDDDD;" onload="Game.executeOnLoad();">
+    <div style="text-align: center">
+        <canvas id = "frontCanvas" width = "100px" height = "100px" style="position: relative ; -webkit-tap-highlight-color:rgba(0,0,0,0);" />
+        <canvas id = "backCanvas" width = "100px" height = "100px" style="visibility: hidden; -webkit-tap-highlight-color:rgba(0,0,0,0);" />
+    </div>
+    <div id="controls" style="text-align: center;">
+        particles:
+        <input type="text" id="numbertext" style="width: 50px" value="10" />
+        <button id="go" onclick="Game.start(Util.get('numbertext').value)" >go</button>
+        <button id="stop" onclick="Game.stop()" >stop</button>
+        <button id="clear" onclick="Game.clear()" >clear</button>
+        <input type="checkbox" id="friction" checked="true" click="Consts.FrictionEnabled = !Consts.FrictionEnabled">friction</button>
+        <input type="checkbox" id="psychadelic" >psychadelic</button>
+        <input type="checkbox" id="paddlemode" checked="true">paddle draw</button>
+        <input type="checkbox" id="pulsemode" checked="true">pulse</button>
+        <input type="checkbox" checked="true" id="gravitymode" >gravity</button>
+        <input type="checkbox" checked="true" id="enablefloor" >floor</button>
+        <input type="checkbox" id="square" >square</button>
+        <input type="checkbox" id="fullscreen" onclick="Game.setFullScreen()" >big</button>
+        <input type="checkbox" id="nightmode" onclick="Game.setNightMode()" >night</button>
+        <input type="checkbox" id="superpsychadelic" onclick="Game.setNightMode()" >super psych</button>
+    </div>
+    <div style="text-align: center;">
+        particle size:
+        <input type="text" onchange="Game.particleWidthChanged(this)" id="particlewidth" style="width: 50px" value="10" />
+        paddle width/height: 
+        <input type="text" id="paddlewidth" style="width: 50px" value="100" />
+        <input type="text" id="paddleheight" style="width: 50px"  value="20" />
+        <button id="clearpaddles" onclick="Game.clearPaddles()" >clear paddles</button>
+        <input type="checkbox" id="draw" >draw</button>
+        <input type="checkbox" id="mousepaddle" checked="true" >mouse paddle</button>
+        <input type="checkbox" id="physicsopt" checked="true" onclick="Consts.PhysicsOpt = !Consts.PhysicsOpt;" >physics optimization</button>
+        <input type="checkbox" id="drawline" onclick="Consts.DrawLine = !Consts.DrawLine;" >draw lines</button>
+        <button id="clearTerrain" onclick="Game.clearTerrain()" >clear lines</button>
+    </div>
+    <div id="footer" style="text-align: center;">
+        clicking in the canvas also works!
+        <br/>
+        i recommend pressing F11 before big
+    </div>
+</body>
+</html>
